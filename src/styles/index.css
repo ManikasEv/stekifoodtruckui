@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  font-family: inherit;
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STEKI Foodtruck Wettingen | Griechisches Streetfood</title>
+    <meta
+      name="description"
+      content="STEKI Foodtruck in Wettingen: authentisches griechisches Streetfood, Souvlaki, Bifteki, Pita und mehr. Aktuellen Standort finden oder Foodtruck für Events buchen."
+    />
+    <meta
+      name="keywords"
+      content="Foodtruck Wettingen, griechisches Essen Wettingen, Greek Foodtruck Schweiz, Souvlaki, Pita, Bifteki, Streetfood Aargau, Foodtruck buchen"
+    />
+    <meta name="author" content="STEKI GmbH" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#071d38" />
+    <link rel="canonical" href="https://steki.ch/" />
+    <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
+    <link rel="apple-touch-icon" href="/logo.jpeg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:site_name" content="STEKI Greek Taste" />
+    <meta property="og:title" content="STEKI Foodtruck | Griechischer Geschmack unterwegs" />
+    <meta
+      property="og:description"
+      content="Authentisches griechisches Streetfood aus Wettingen. Entdecke unsere Speisekarte, finde den aktuellen Standort oder buche STEKI für deinen Event."
+    />
+    <meta property="og:url" content="https://steki.ch/" />
+    <meta property="og:image" content="https://steki.ch/logo.jpeg" />
+    <meta property="og:image:alt" content="STEKI Greek Taste Foodtruck Logo" />
+    <meta property="og:image:width" content="478" />
+    <meta property="og:image:height" content="1024" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="STEKI Foodtruck Wettingen" />
+    <meta name="twitter:description" content="Authentisches griechisches Streetfood – frisch vom Grill und mobil unterwegs." />
+    <meta name="twitter:image" content="https://steki.ch/logo.jpeg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["FoodEstablishment", "LocalBusiness"],
+        "@id": "https://steki.ch/#foodtruck",
+        "name": "STEKI Greek Taste",
+        "legalName": "STEKI GmbH",
+        "description": "Mobiler griechischer Foodtruck mit authentischem Streetfood, Souvlaki, Bifteki und Pita.",
+        "url": "https://steki.ch/",
+        "email": "info@steki.ch",
+        "logo": "https://steki.ch/logo.jpeg",
+        "image": "https://steki.ch/logo.jpeg",
+        "servesCuisine": ["Griechisch", "Streetfood"],
+        "priceRange": "CHF 3–24",
+        "currenciesAccepted": "CHF",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bahnhofstrasse 107",
+          "postalCode": "5430",
+          "addressLocality": "Wettingen",
+          "addressRegion": "AG",
+          "addressCountry": "CH"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Wettingen und Umgebung"
+        },
+        "hasMenu": "https://steki.ch/#speisekarte"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Static duplicate of the booking form so Netlify's build bots detect it -->
+    <form name="foodtruck-buchung" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="telefon" />
+      <input type="date" name="datum" />
+      <input type="text" name="ort" />
+      <textarea name="nachricht"></textarea>
+      <input name="bot-field" />
+    </form>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
