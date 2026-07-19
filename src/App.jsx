@@ -8,11 +8,16 @@ import MapSection from './components/MapSection'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScanMenu from './components/ScanMenu'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import './styles/App.css'
 
 export default function App() {
   useScrollReveal()
+
+  if (window.location.pathname.replace(/\/+$/, '') === '/scanmenu') {
+    return <ScanMenu />
+  }
 
   return (
     <div className="site-shell">
