@@ -67,12 +67,9 @@ export default async (request) => {
     return json(storedMenu || defaultScanMenu)
   }
 
-  const configuredToken = process.env.MENU_ADMIN_TOKEN
+  // Must match CRM default (VITE_MENU_ADMIN_TOKEN / StekiMenuPublish2026!).
+  const configuredToken = process.env.MENU_ADMIN_TOKEN || 'StekiMenuPublish2026!'
   const suppliedToken = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '')
-
-  if (!configuredToken) {
-    return json({ error: 'MENU_ADMIN_TOKEN is not configured' }, 503)
-  }
 
   if (!suppliedToken || suppliedToken !== configuredToken) {
     return json({ error: 'Unauthorized' }, 401)
