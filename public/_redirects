@@ -1,6 +1,6 @@
 # Editable QR menu API
 /api/menu  /.netlify/functions/menu  200
 
-# SPA fallback – required so /scanmenu and other client routes work
+# SPA fallback so /scanmenu and other client routes work
 /scanmenu  /index.html  200
 /*         /index.html  200
