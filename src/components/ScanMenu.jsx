@@ -10,6 +10,16 @@ const price = (value) =>
     maximumFractionDigits: 2,
   }).format(Number(value) || 0)
 
+const withDefaults = (menu) => ({
+  ...defaultScanMenu,
+  ...menu,
+  extras: Array.isArray(menu?.extras) ? menu.extras : defaultScanMenu.extras,
+  categories:
+    Array.isArray(menu?.categories) && menu.categories.length
+      ? menu.categories
+      : defaultScanMenu.categories,
+})
+
 export default function ScanMenu() {
   const [menu, setMenu] = useState(defaultScanMenu)
   const [status, setStatus] = useState('loading')
@@ -21,7 +31,7 @@ export default function ScanMenu() {
       try {
         const response = await fetch('/api/menu', { cache: 'no-store' })
         if (!response.ok) throw new Error(`Menu request failed: ${response.status}`)
-        setMenu(await response.json())
+        setMenu(withDefaults(await response.json()))
         setStatus('ready')
       } catch {
         setStatus('fallback')
@@ -33,6 +43,12 @@ export default function ScanMenu() {
 
   const availableItems = menu.items.filter((item) => item.available !== false)
   const availableExtras = menu.extras.filter((item) => item.available !== false)
+  const availableCategories = (menu.categories || [])
+    .map((category) => ({
+      ...category,
+      items: (category.items || []).filter((item) => item.available !== false),
+    }))
+    .filter((category) => category.items.length > 0)
 
   return (
     <div className="scan-menu-page">
@@ -54,7 +70,11 @@ export default function ScanMenu() {
       <main>
         <section className="scan-hero">
           <span>ΚΑΛΗ ΟΡΕΞΗ · EN GUETE</span>
-          <h1>Unsere<br />Speisekarte</h1>
+          <h1>
+            Unsere
+            <br />
+            Speisekarte
+          </h1>
           <p>{menu.notice}</p>
           {status === 'loading' && <small>Speisekarte wird geladen…</small>}
           {status === 'fallback' && (
@@ -91,7 +111,7 @@ export default function ScanMenu() {
         {availableExtras.length > 0 && (
           <section className="scan-extras">
             <div className="scan-extras-heading">
-              <span>DAZU & EXTRA</span>
+              <span>DAZU &amp; EXTRA</span>
               <h2>Für den kleinen Hunger.</h2>
             </div>
             <div className="scan-extra-list">
@@ -107,6 +127,27 @@ export default function ScanMenu() {
             </div>
           </section>
         )}
+
+        {availableCategories.map((category) => (
+          <section className="scan-extras scan-category" key={category.id}>
+            <div className="scan-extras-heading">
+              <span>{category.eyebrow || category.title}</span>
+              <h2>{category.title}</h2>
+              {category.subtitle ? <p>{category.subtitle}</p> : null}
+            </div>
+            <div className="scan-extra-list">
+              {category.items.map((item) => (
+                <article key={item.id}>
+                  <span>
+                    <strong>{item.name}</strong>
+                    <small>{item.description}</small>
+                  </span>
+                  <strong>{price(item.price)}</strong>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
 
         {menu.sauces && (
           <section className="scan-sauces">

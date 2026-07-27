@@ -87,5 +87,20 @@ export const defaultScanMenu = {
       available: true,
     },
   ],
+  categories: [
+    {
+      id: 'drinks',
+      title: 'Getränke',
+      eyebrow: 'Erfrischung',
+      subtitle: 'Alle Flaschen à 500 ml.',
+      items: [
+        { id: 'coca-cola', name: 'Coca-Cola', description: '500 ml', price: 4, available: true },
+        { id: 'coca-cola-zero', name: 'Coca-Cola Zero', description: '500 ml', price: 4, available: true },
+        { id: 'fanta-orange', name: 'Fanta Orange', description: '500 ml', price: 4, available: true },
+        { id: 'wasser', name: 'Wasser', description: '500 ml', price: 4, available: true },
+        { id: 'wasser-mit-gas', name: 'Wasser mit Gas', description: '500 ml', price: 4, available: true },
+      ],
+    },
+  ],
   sauces: 'Cocktail, Honig-Senf, Knoblauch, Ketchup, Mayo, Senf oder scharf',
 }

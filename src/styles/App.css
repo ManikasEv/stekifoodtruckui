@@ -178,6 +178,9 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
 .price { color: var(--navy); font-family: "Bitter", Georgia, serif; font-size: 22px; text-align: center; transition: color .3s; }
 .price small, .extra-item > strong small { font-family: inherit; font-size: 9px; }
 .extras { margin-top: 48px; display: grid; grid-template-columns: 34% 66%; background: var(--navy); color: white; }
+.extras.drinks { margin-top: 18px; background: var(--navy-soft); }
+.extras.drinks .extras-title { background: var(--navy); }
+
 .extras-title { padding: 48px; background: var(--navy-soft); }
 .extras-title h3 { margin: 17px 0 16px; color: white; font-size: 34px; line-height: 1.15; }
 .extras-title p { margin: 0; color: #aeb8c5; font-size: 11px; line-height: 1.7; }

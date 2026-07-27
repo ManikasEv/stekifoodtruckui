@@ -257,6 +257,17 @@
   line-height: 1.15;
 }
 
+.scan-extras-heading p {
+  margin: 12px 0 0;
+  color: #aeb8c5;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.scan-category {
+  margin-top: 18px;
+}
+
 .scan-extra-list {
   padding: 20px 30px;
   display: grid;

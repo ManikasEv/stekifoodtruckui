@@ -1,4 +1,4 @@
-import { extras, menuItems, sauces } from '../data/menu'
+import { drinks, extras, menuItems, sauces } from '../data/menu'
 
 export default function Menu() {
   return (
@@ -49,7 +49,7 @@ export default function Menu() {
       <div className="extras">
         <div className="extras-title">
           <span className="eyebrow light">
-            <span></span> Dazu & extra
+            <span></span> Dazu &amp; extra
           </span>
           <h3>
             Für den kleinen
@@ -73,6 +73,35 @@ export default function Menu() {
           ))}
         </div>
       </div>
+
+      <div className="extras drinks">
+        <div className="extras-title">
+          <span className="eyebrow light">
+            <span></span> Getränke
+          </span>
+          <h3>
+            Erfrischend
+            <br />
+            dazu.
+          </h3>
+          <p>Alle Flaschen à 500 ml.</p>
+        </div>
+        <div className="extras-list">
+          {drinks.map((item) => (
+            <div className="extra-item" key={item.name}>
+              <span>
+                <strong>{item.name}</strong>
+                <small>{item.description}</small>
+              </span>
+              <strong>
+                {item.price}
+                <small> CHF</small>
+              </strong>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <p className="menu-disclaimer">
         Alle Preise in CHF inkl. MwSt. Bei Allergien oder Unverträglichkeiten beraten wir dich gerne persönlich.
       </p>

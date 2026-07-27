@@ -24,31 +24,60 @@ const cleanPrice = (value) => {
   return Number.isFinite(number) && number >= 0 ? Math.round(number * 100) / 100 : 0
 }
 
-const cleanMenu = (input) => ({
-  updatedAt: new Date().toISOString(),
-  notice: cleanText(input.notice, 250),
-  sauces: cleanText(input.sauces, 350),
-  items: Array.isArray(input.items)
-    ? input.items.slice(0, 30).map((item, index) => ({
-        id: cleanText(item.id, 80) || `item-${index + 1}`,
-        name: cleanText(item.name, 120),
-        greek: cleanText(item.greek, 120),
-        description: cleanText(item.description, 500),
-        pita: cleanPrice(item.pita),
-        plate: cleanPrice(item.plate),
-        available: item.available !== false,
-        featured: item.featured === true,
-      }))
-    : [],
-  extras: Array.isArray(input.extras)
-    ? input.extras.slice(0, 30).map((item, index) => ({
-        id: cleanText(item.id, 80) || `extra-${index + 1}`,
+const cleanPricedItems = (items, idPrefix) =>
+  Array.isArray(items)
+    ? items.slice(0, 30).map((item, index) => ({
+        id: cleanText(item.id, 80) || `${idPrefix}-${index + 1}`,
         name: cleanText(item.name, 120),
         description: cleanText(item.description, 500),
         price: cleanPrice(item.price),
         available: item.available !== false,
       }))
-    : [],
+    : []
+
+const cleanCategories = (categories) =>
+  Array.isArray(categories)
+    ? categories.slice(0, 12).map((category, index) => ({
+        id: cleanText(category.id, 80) || `category-${index + 1}`,
+        title: cleanText(category.title, 80) || `Kategorie ${index + 1}`,
+        eyebrow: cleanText(category.eyebrow, 80),
+        subtitle: cleanText(category.subtitle, 200),
+        items: cleanPricedItems(category.items, `cat-${index + 1}-item`),
+      }))
+    : []
+
+const normalizeMenu = (input = {}) => {
+  const categories =
+    Array.isArray(input.categories) && input.categories.length
+      ? cleanCategories(input.categories)
+      : defaultScanMenu.categories
+
+  return {
+    updatedAt: input.updatedAt || null,
+    notice: cleanText(input.notice ?? defaultScanMenu.notice, 250),
+    sauces: cleanText(input.sauces ?? defaultScanMenu.sauces, 350),
+    items: Array.isArray(input.items)
+      ? input.items.slice(0, 30).map((item, index) => ({
+          id: cleanText(item.id, 80) || `item-${index + 1}`,
+          name: cleanText(item.name, 120),
+          greek: cleanText(item.greek, 120),
+          description: cleanText(item.description, 500),
+          pita: cleanPrice(item.pita),
+          plate: cleanPrice(item.plate),
+          available: item.available !== false,
+          featured: item.featured === true,
+        }))
+      : defaultScanMenu.items,
+    extras: Array.isArray(input.extras)
+      ? cleanPricedItems(input.extras, 'extra')
+      : defaultScanMenu.extras,
+    categories,
+  }
+}
+
+const cleanMenu = (input) => ({
+  ...normalizeMenu(input),
+  updatedAt: new Date().toISOString(),
 })
 
 export default async (request) => {
@@ -64,7 +93,7 @@ export default async (request) => {
 
   if (request.method === 'GET') {
     const storedMenu = await store.get('current', { type: 'json' })
-    return json(storedMenu || defaultScanMenu)
+    return json(normalizeMenu(storedMenu || defaultScanMenu))
   }
 
   // Must match CRM default (VITE_MENU_ADMIN_TOKEN / StekiMenuPublish2026!).
