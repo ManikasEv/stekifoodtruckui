@@ -43,16 +43,6 @@ export const defaultScanMenu = {
       featured: false,
     },
     {
-      id: 'bauernwurst',
-      name: 'Griechische Bauernwurst',
-      greek: 'Λουκάνικο χωριάτικο',
-      description: '70 % Schwein, 30 % Rind, Tzatziki, Tomaten, Zwiebeln und Pommes frites',
-      pita: 15,
-      plate: 20,
-      available: true,
-      featured: false,
-    },
-    {
       id: 'veganer-gyros',
       name: 'Veganer Gyros',
       greek: 'Γύρος vegan',
@@ -102,5 +92,5 @@ export const defaultScanMenu = {
       ],
     },
   ],
-  sauces: 'Cocktail, Honig-Senf, Knoblauch, Ketchup, Mayo, Senf oder scharf',
+  sauces: 'Tzatziki, Tirokafteri, Honig-Senf, Cocktail, Mayo, Ketchup, Senf und scharf',
 }

@@ -5,9 +5,9 @@ export const site = {
   domain: 'steki.ch',
   logo: '/logo.jpeg',
   address: {
-    street: 'Bahnhofstrasse 107',
+    street: 'Landstrasse 89 (Zentrumsplatz)',
     city: '5430 Wettingen',
-    mapsQuery: 'Bahnhofstrasse 107, 5430 Wettingen',
+    mapsQuery: 'Landstrasse 89, 5430 Wettingen',
   },
 }
 

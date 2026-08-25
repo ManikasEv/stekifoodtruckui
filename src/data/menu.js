@@ -34,14 +34,6 @@ export const menuItems = [
   },
   {
     number: '05',
-    name: 'Griechische Bauernwurst',
-    greek: 'Λουκάνικο χωριάτικο',
-    description: '70 % Schwein, 30 % Rind – mit Tzatziki, Tomaten, Zwiebeln und Pommes frites',
-    pita: '15',
-    teller: '20',
-  },
-  {
-    number: '06',
     name: 'Veganer Gyros',
     greek: 'Γύρος vegan',
     description: 'Veganer Gyros mit veganem Tzatziki, Tomaten, Zwiebeln und Pommes frites',
@@ -49,7 +41,7 @@ export const menuItems = [
     teller: '20',
   },
   {
-    number: '07',
+    number: '06',
     name: 'Halloumi-Sticks',
     greek: 'Χαλούμι sticks',
     description: 'Knusprige Halloumi-Sticks in der Pita mit Tzatziki, Tomaten, Zwiebeln und Pommes frites',
@@ -75,4 +67,5 @@ export const drinks = [
   { name: 'Wasser mit Gas', description: '500 ml', price: '4' },
 ]
 
-export const sauces = 'Cocktail, Honig-Senf, Knoblauch, Ketchup, Mayo, Senf oder scharf.'
+export const sauces =
+  'Tzatziki, Tirokafteri, Honig-Senf, Cocktail, Mayo, Ketchup, Senf und scharf'

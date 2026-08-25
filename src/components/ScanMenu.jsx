@@ -167,7 +167,7 @@ export default function ScanMenu() {
             <small>Greek Taste</small>
           </span>
         </div>
-        <p>Bahnhofstrasse 107 · 5430 Wettingen</p>
+        <p>Landstrasse 89 (Zentrumsplatz) · 5430 Wettingen</p>
         <a href="mailto:info@steki.ch">info@steki.ch</a>
       </footer>
     </div>

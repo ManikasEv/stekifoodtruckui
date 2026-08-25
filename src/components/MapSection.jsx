@@ -19,8 +19,8 @@ export default function MapSection() {
             Wettingen.
           </h2>
           <p>
-            Unseren Hauptstandort an der Bahnhofstrasse 107 erreichst du bequem zu Fuss, mit dem
-            Velo oder mit den öffentlichen Verkehrsmitteln. Halte einfach Ausschau nach dem
+            Unseren Hauptstandort an der Landstrasse 89 (Zentrumsplatz) erreichst du bequem zu Fuss,
+            mit dem Velo oder mit den öffentlichen Verkehrsmitteln. Halte einfach Ausschau nach dem
             STEKI-Bären – wo er steht, gibt es frisches griechisches Streetfood.
           </p>
           <div className="map-address">
