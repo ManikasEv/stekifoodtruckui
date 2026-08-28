@@ -34,15 +34,13 @@ export default function Hero() {
       </div>
 
       <div className="hero-visual">
-        <span className="greek-key" aria-hidden="true">ΓΕΥΣΗ • ΠΑΡΑΔΟΣΗ • ΦΙΛΟΞΕΝΙΑ</span>
-        <span className="hero-greek hero-greek-left" aria-hidden="true">ΕΛΛΑΔΑ</span>
-        <span className="hero-greek hero-greek-right" aria-hidden="true">ΣΤΕΚΙ</span>
         <div className="hero-photo">
           <img
             src="/hero-foodtruck.png"
             alt="STEKI Greek Taste – frische griechische Pita direkt aus dem Foodtruck"
           />
         </div>
+        <span className="greek-key" aria-hidden="true">ΓΕΥΣΗ • ΠΑΡΑΔΟΣΗ • ΦΙΛΟΞΕΝΙΑ</span>
         <div className="location-card">
           <span className="location-icon">
             <Icon name="pin" />
@@ -55,8 +53,6 @@ export default function Hero() {
         </div>
         <span className="sun sun-one"></span>
         <span className="sun sun-two"></span>
-        <span className="spark spark-one" aria-hidden="true">✦</span>
-        <span className="spark spark-two" aria-hidden="true">✦</span>
       </div>
     </section>
   )

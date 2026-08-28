@@ -50,7 +50,7 @@ export default function FoodShowcase() {
             key={item.id}
             src={item.image}
             alt=""
-            className={index === active ? 'is-active' : ''}
+            className={`food-slide-${item.id} ${index === active ? 'is-active' : ''}`}
           />
         ))}
         <div className="food-spotlight-dots">
