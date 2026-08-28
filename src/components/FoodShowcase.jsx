@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react'
 import Icon from './Icon'
+
+const SLIDE_MS = 6000
 
 const dishes = [
   {
     id: 'pita',
-    number: '01',
     tag: 'Original Greek Pita',
     title: 'Die echte griechische Pita.',
     greek: 'Η αυθεντική πίτα',
@@ -14,7 +16,6 @@ const dishes = [
   },
   {
     id: 'teller',
-    number: '02',
     tag: 'Delicious Greek Teller',
     title: 'Der Teller für grossen Hunger.',
     greek: 'Το πιάτο μας',
@@ -22,54 +23,66 @@ const dishes = [
     note: 'Teller · ab CHF 20',
     image: '/greek-teller.png',
     alt: 'Griechischer Teller mit Pancetta, Pommes, Pita und Tzatziki von STEKI',
-    reverse: true,
   },
 ]
 
 export default function FoodShowcase() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reducedMotion) return undefined
+
+    const timer = window.setInterval(() => {
+      setActive((current) => (current + 1) % dishes.length)
+    }, SLIDE_MS)
+
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const dish = dishes[active]
+
   return (
-    <section className="food-showcase section" id="unsere-kueche" aria-labelledby="food-showcase-title">
-      <div className="section-heading food-showcase-heading">
-        <div>
-          <span className="eyebrow">
-            <span></span> Unsere Küche
-          </span>
-          <h2 id="food-showcase-title">
-            Zwei Klassiker.
-            <br />
-            <em>Ein Geschmack.</em>
-          </h2>
+    <section className="food-spotlight" id="unsere-kueche" aria-label="Unsere Küche">
+      <div className="food-spotlight-visual" aria-hidden="true">
+        {dishes.map((item, index) => (
+          <img
+            key={item.id}
+            src={item.image}
+            alt=""
+            className={index === active ? 'is-active' : ''}
+          />
+        ))}
+        <div className="food-spotlight-dots">
+          {dishes.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              className={index === active ? 'is-active' : ''}
+              aria-label={`${item.tag} anzeigen`}
+              aria-current={index === active ? 'true' : undefined}
+              onClick={() => setActive(index)}
+            />
+          ))}
         </div>
-        <p>
-          Ob in der Hand oder auf dem Teller – bei STEKI bekommst du echtes griechisches Streetfood:
-          frisch vom Grill, mit Liebe zubereitet und serviert.
-        </p>
       </div>
 
-      <div className="food-showcase-grid">
-        {dishes.map((dish) => (
-          <article
-            className={`food-card ${dish.reverse ? 'food-card-reverse' : ''}`}
-            key={dish.id}
-          >
-            <div className="food-card-media">
-              <img src={dish.image} alt={dish.alt} loading="lazy" />
-              <span className="food-card-number">{dish.number}</span>
-            </div>
-            <div className="food-card-copy">
-              <span className="food-card-tag">{dish.tag}</span>
-              <h3>{dish.title}</h3>
-              <small>{dish.greek}</small>
-              <p>{dish.text}</p>
-              <div className="food-card-foot">
-                <strong>{dish.note}</strong>
-                <a className="text-link" href="#speisekarte">
-                  Zur Speisekarte <Icon name="arrow" size={17} />
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
+      <div className="food-spotlight-copy">
+        <span className="eyebrow">
+          <span></span> Unsere Küche
+        </span>
+        <div className="food-spotlight-slide" key={dish.id}>
+          <span className="food-spotlight-tag">{dish.tag}</span>
+          <h2>{dish.title}</h2>
+          <small>{dish.greek}</small>
+          <p>{dish.text}</p>
+          <div className="food-spotlight-foot">
+            <strong>{dish.note}</strong>
+            <a className="text-link" href="#speisekarte">
+              Zur Speisekarte <Icon name="arrow" size={17} />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )
