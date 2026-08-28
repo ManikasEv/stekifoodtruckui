@@ -41,18 +41,19 @@ export default function Hero() {
           />
         </div>
         <span className="greek-key" aria-hidden="true">ΓΕΥΣΗ • ΠΑΡΑΔΟΣΗ • ΦΙΛΟΞΕΝΙΑ</span>
-        <div className="location-card">
-          <span className="location-icon">
-            <Icon name="pin" />
-          </span>
-          <span>
-            <small>Hauptstandort</small>
-            <strong>{site.address.street}</strong>
-            <small>{site.address.city}</small>
-          </span>
-        </div>
         <span className="sun sun-one"></span>
         <span className="sun sun-two"></span>
+      </div>
+
+      <div className="location-card">
+        <span className="location-icon">
+          <Icon name="pin" />
+        </span>
+        <span>
+          <small>Hauptstandort</small>
+          <strong>{site.address.street}</strong>
+          <small>{site.address.city}</small>
+        </span>
       </div>
     </section>
   )

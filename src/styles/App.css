@@ -56,7 +56,7 @@ nav a:hover::after { right: 0; }
 
 .hero {
   min-height: 680px; display: grid; grid-template-columns: 52% 48%; background: var(--cream);
-  position: relative;
+  position: relative; overflow: visible;
 }
 .hero-copy { padding: 110px 6vw 90px max(7vw, 44px); position: relative; z-index: 2; }
 .hero-copy .eyebrow { animation: hero-rise .7s .1s both; }
@@ -106,7 +106,7 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
   animation: fade-in 1.2s .8s both;
 }
 .location-card {
-  position: absolute; left: -45px; bottom: 55px; z-index: 3; min-width: 270px;
+  position: absolute; left: calc(52% - 135px); bottom: 55px; z-index: 5; min-width: 270px;
   display: flex; align-items: center; gap: 14px; padding: 18px; background: var(--paper);
   box-shadow: 0 18px 50px rgba(0,0,0,.2);
   animation: card-arrive .8s .75s cubic-bezier(.22,1,.36,1) both, card-float 4s 1.6s ease-in-out infinite;
@@ -123,7 +123,8 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
 .spark-two { left: 14%; bottom: 25%; font-size: 12px; animation-delay: -1.2s; }
 
 .taste-marquee {
-  overflow: hidden; padding: 14px 0; color: var(--navy); background: var(--gold);
+  overflow: hidden; padding: 14px 0; margin-top: 8px;
+  color: var(--navy); background: var(--gold);
   border-top: 1px solid rgba(7,29,56,.2); border-bottom: 1px solid rgba(7,29,56,.2);
 }
 .taste-marquee > div {
@@ -136,7 +137,8 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
 .taste-marquee i { font-style: normal; font-size: 10px; }
 
 .intro-strip {
-  padding: 30px 7vw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  padding: 30px 7vw; margin-top: 12px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   background: var(--paper); border-bottom: 1px solid var(--line);
 }
 .intro-strip > div { display: grid; grid-template-columns: 46px 1fr; padding: 7px 40px; border-right: 1px solid var(--line); }
@@ -148,10 +150,11 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
 
 .food-spotlight {
   display: grid; grid-template-columns: 48% 52%; align-items: stretch;
-  border-bottom: 1px solid var(--line);
+  min-height: 640px; margin: 52px max(7vw, 44px) 56px;
+  border: 1px solid var(--line); box-shadow: 0 18px 55px rgba(7,29,56,.06);
 }
 .food-spotlight-visual {
-  position: relative; min-height: 100%; overflow: hidden; background: #0e1624;
+  position: relative; min-height: 640px; overflow: hidden; background: #0e1624;
 }
 .food-spotlight-visual img {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -174,7 +177,7 @@ h1 em { display: block; color: var(--gold); font-weight: inherit; }
 }
 .food-spotlight-copy {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 56px max(6vw, 44px);
+  padding: 64px max(5vw, 48px);
   background: var(--cream);
 }
 .food-spotlight-tag {
@@ -413,13 +416,14 @@ footer { padding: 55px max(7vw, 44px) 25px; background: #041327; color: white; }
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 75px 7vw 65px; }
   .hero-visual { min-height: 520px; }
-  .location-card { left: 5vw; }
+  .location-card { left: 5vw; bottom: 28px; }
+  .intro-strip { grid-template-columns: 1fr; padding-top: 15px; padding-bottom: 15px; }
   .intro-strip > div, .intro-strip > div:first-child { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .intro-strip > div:last-child { border-bottom: 0; }
   .section-heading { align-items: start; flex-direction: column; margin-bottom: 40px; }
   .section-heading > p { width: auto; max-width: 600px; }
-  .food-spotlight { grid-template-columns: 1fr; min-height: 0; }
-  .food-spotlight-visual { min-height: 340px; }
+  .food-spotlight { grid-template-columns: 1fr; min-height: 0; margin: 36px 7vw 40px; }
+  .food-spotlight-visual { min-height: 380px; }
   .food-spotlight-copy { padding: 48px 7vw; }
   .extras { grid-template-columns: 1fr; }
   .location-grid { grid-template-columns: 1fr; }
@@ -443,10 +447,11 @@ footer { padding: 55px max(7vw, 44px) 25px; background: #041327; color: white; }
   .hero-actions .button { width: 100%; }
   .hero-notes { flex-direction: column; gap: 9px; }
   .hero-visual { min-height: 430px; }
-  .food-spotlight-visual { min-height: 280px; }
+  .location-card { left: 22px; right: 22px; bottom: 22px; min-width: 0; }
+  .food-spotlight { margin: 28px 22px 32px; }
+  .food-spotlight-visual { min-height: 300px; }
   .food-spotlight-copy { padding: 40px 22px; }
   .food-spotlight-slide h2 { font-size: 32px; }
-  .location-card { right: 20px; left: 20px; bottom: 25px; min-width: 0; }
   .greek-key { letter-spacing: .2em; }
   .section { padding: 75px 22px; }
   .section-heading h2 { font-size: 38px; }
