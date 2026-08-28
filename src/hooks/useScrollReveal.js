@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 const REVEAL_SELECTOR = [
   '.section-heading',
+  '.food-card',
   '.menu-item',
   '.extras',
   '.main-location',

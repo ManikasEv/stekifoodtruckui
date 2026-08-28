@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import FoodShowcase from './components/FoodShowcase'
 import Marquee from './components/Marquee'
 import Highlights from './components/Highlights'
 import Menu from './components/Menu'
@@ -24,6 +25,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
+        <FoodShowcase />
         <Marquee />
         <Highlights />
         <Menu />
