@@ -1,7 +1,10 @@
 import Icon from './Icon'
-import { site } from '../data/site'
+import { getTodayStop, weeklyStops } from '../data/site'
 
 export default function Hero() {
+  const todayStop = getTodayStop()
+  const featured = todayStop || weeklyStops[0]
+
   return (
     <section className="hero" id="start">
       <div className="hero-copy">
@@ -13,7 +16,7 @@ export default function Hero() {
         </h1>
         <p className="hero-text">
           Frisch vom Grill, mit Herz serviert. Entdecke echtes griechisches Streetfood
-          aus unserem Foodtruck – rund um Wettingen und dort, wo du uns brauchst.
+          aus unserem Foodtruck – unterwegs in Zürich und Umgebung, dort wo du uns brauchst.
         </p>
         <div className="hero-actions">
           <a className="button" href="#speisekarte">
@@ -45,16 +48,18 @@ export default function Hero() {
         <span className="sun sun-two"></span>
       </div>
 
-      <div className="location-card">
+      <a className="location-card" href="#standort">
         <span className="location-icon">
           <Icon name="pin" />
         </span>
         <span>
-          <small>Hauptstandort</small>
-          <strong>{site.address.street}</strong>
-          <small>{site.address.city}</small>
+          <small>{todayStop ? 'Heute unterwegs' : 'Wochenplan'}</small>
+          <strong>{featured.title}</strong>
+          <small>
+            {featured.street}, {featured.city}
+          </small>
         </span>
-      </div>
+      </a>
     </section>
   )
 }

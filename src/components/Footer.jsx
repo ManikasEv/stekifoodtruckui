@@ -10,16 +10,16 @@ export default function Footer() {
         <p>
           Authentisches griechisches Streetfood
           <br />
-          aus Wettingen – frisch und mobil.
+          aus Zürich und Umgebung – frisch und mobil.
         </p>
         <div className="footer-contact">
           <small>Kontakt</small>
           <a href={`mailto:${site.email}`}>
             <Icon name="mail" size={17} /> {site.email}
           </a>
-          <span>
-            <Icon name="pin" size={17} /> {site.address.street}, {site.address.city}
-          </span>
+          <a href="#standort">
+            <Icon name="pin" size={17} /> Aktuellen Standort ansehen
+          </a>
         </div>
       </div>
       <div className="footer-bottom">

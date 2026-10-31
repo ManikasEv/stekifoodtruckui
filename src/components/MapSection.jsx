@@ -1,11 +1,10 @@
 import Icon from './Icon'
-import { mapsUrl, site } from '../data/site'
-
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
-  site.address.mapsQuery,
-)}&z=16&output=embed`
+import { embedUrlFor, getTodayStop, mapsUrlFor, weeklyStops } from '../data/site'
 
 export default function MapSection() {
+  const liveStop = getTodayStop()
+  const featured = liveStop || weeklyStops[0]
+
   return (
     <section className="map-section section" id="karte">
       <div className="map-grid">
@@ -14,33 +13,36 @@ export default function MapSection() {
             <span></span> So findest du uns
           </span>
           <h2>
-            Mitten in
+            {liveStop ? 'Aktueller Stopp' : 'Nächster Stopp'}
             <br />
-            Wettingen.
+            {featured.title}.
           </h2>
           <p>
-            Unseren Hauptstandort an der Landstrasse 89 (Zentrumsplatz) erreichst du bequem zu Fuss,
-            mit dem Velo oder mit den öffentlichen Verkehrsmitteln. Halte einfach Ausschau nach dem
-            STEKI-Bären – wo er steht, gibt es frisches griechisches Streetfood.
+            STEKI steht nicht mehr fest in Wettingen, sondern wechselt den Standort nach Wochentag.
+            Hier siehst du den passenden Treffpunkt – mit Adresse, Zeit und Karte.
           </p>
           <div className="map-address">
             <span className="location-big-icon">
               <Icon name="pin" size={24} />
             </span>
             <span>
-              <strong>{site.address.street}</strong>
-              <small>{site.address.city}</small>
+              <strong>
+                {featured.day} · {featured.hours}
+              </strong>
+              <small>
+                {featured.street}, {featured.city}
+              </small>
             </span>
           </div>
-          <a className="button" href={mapsUrl} target="_blank" rel="noreferrer">
+          <a className="button" href={mapsUrlFor(featured.mapsQuery)} target="_blank" rel="noreferrer">
             Route planen <Icon name="arrow" size={18} />
           </a>
         </div>
 
         <div className="map-frame">
           <iframe
-            src={embedUrl}
-            title={`Karte – ${site.name} Hauptstandort, ${site.address.street}, ${site.address.city}`}
+            src={embedUrlFor(featured.mapsQuery)}
+            title={`Karte – STEKI ${featured.title}, ${featured.street}, ${featured.city}`}
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
