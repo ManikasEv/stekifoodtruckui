@@ -12,8 +12,8 @@ export const site = {
 }
 
 export const closedNotice = {
-  title: 'Wettingen vorübergehend geschlossen',
-  text: 'Unser bisheriger Standort an der Landstrasse 89 (Zentrumsplatz) in Wettingen ist vorübergehend geschlossen. Bitte nicht mehr dort suchen oder anrufen – den aktuellen Stopp findest du im Wochenplan.',
+  title: 'Wettingen ist vorübergehend geschlossen',
+  text: 'Landstrasse 89 am Zentrumsplatz. Bitte nicht mehr dort vorbeikommen – der aktuelle Stopp steht hier.',
 }
 
 export const weeklyStops = [
@@ -27,7 +27,6 @@ export const weeklyStops = [
     street: 'Wehntalerstrasse 7',
     city: '8154 Oberglatt ZH',
     mapsQuery: 'Wehntalerstrasse 7, 8154 Oberglatt',
-    note: 'Jede Woche am Montag.',
   },
   {
     id: 'duebendorf',
@@ -39,7 +38,6 @@ export const weeklyStops = [
     street: 'Zürichstrasse 128',
     city: '8600 Dübendorf ZH',
     mapsQuery: 'Zürichstrasse 128, 8600 Dübendorf',
-    note: 'Jede Woche am Dienstag.',
   },
   {
     id: 'freilager',
@@ -51,7 +49,6 @@ export const weeklyStops = [
     street: 'Freilagerplatz',
     city: '8047 Zürich',
     mapsQuery: 'Freilagerplatz, 8047 Zürich',
-    note: 'Regelmässig am Mittwoch.',
   },
   {
     id: 'schlieren',
@@ -63,8 +60,7 @@ export const weeklyStops = [
     street: 'Rote Platz · Zentrum / Bahnhof',
     city: '8952 Schlieren ZH',
     mapsQuery: 'Rote Platz Schlieren, Zentrum Bahnhof, 8952 Schlieren',
-    note: 'Nur im November 2026.',
-    limited: 'Nur November 2026',
+    limited: 'November 2026',
     activeFrom: '2026-11-01',
     activeTo: '2026-11-30',
   },

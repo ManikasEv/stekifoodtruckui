@@ -24,10 +24,7 @@ export default function Location() {
             heute steht.
           </h2>
         </div>
-        <p>
-          Der Foodtruck ist unterwegs – jeder Wochentag ein klarer Stopp mit Adresse, Zeit und Karte.
-          So findest du uns, ohne extra anzurufen.
-        </p>
+        <p>Jeder Wochentag hat seinen Ort. Hier stehen Zeit, Adresse und der Weg.</p>
       </div>
 
       <aside className="closed-banner" role="status">
@@ -45,30 +42,31 @@ export default function Location() {
 
           return (
             <article
-              className={`stop-card ${isToday ? 'is-today' : ''} ${!limitedActive ? 'is-limited' : ''}`}
+              className={`stop-card ${isToday ? 'is-today' : ''} ${!limitedActive ? 'is-quiet' : ''}`}
               key={stop.id}
             >
-              <div className="stop-card-top">
-                <span className="stop-day">
-                  <small>{stop.dayShort}</small>
-                  <strong>{stop.day}</strong>
-                </span>
-                <div className="stop-badges">
-                  {isToday ? <span className="stop-chip live">Heute vor Ort</span> : null}
-                  {stop.limited ? <span className="stop-chip limited">{stop.limited}</span> : null}
-                </div>
-              </div>
+              <header className="stop-card-head">
+                <span className="stop-day">{stop.day}</span>
+                {isToday ? <span className="stop-now">Heute</span> : null}
+              </header>
 
               <h3>{stop.title}</h3>
-              <p className="stop-hours">
-                <Icon name="clock" size={16} /> {stop.hours}
-              </p>
-              <p className="stop-address">
-                {stop.street}
-                <br />
-                {stop.city}
-              </p>
-              {stop.note ? <p className="stop-note">{stop.note}</p> : null}
+              {stop.limited ? <p className="stop-limited">{stop.limited}</p> : null}
+
+              <dl className="stop-meta">
+                <div>
+                  <dt>Zeit</dt>
+                  <dd>{stop.hours}</dd>
+                </div>
+                <div>
+                  <dt>Ort</dt>
+                  <dd>
+                    {stop.street}
+                    <br />
+                    {stop.city}
+                  </dd>
+                </div>
+              </dl>
 
               <div className="stop-map">
                 <iframe
@@ -80,7 +78,7 @@ export default function Location() {
                 ></iframe>
               </div>
 
-              <a className="button full" href={mapsUrlFor(stop.mapsQuery)} target="_blank" rel="noreferrer">
+              <a className="stop-route" href={mapsUrlFor(stop.mapsQuery)} target="_blank" rel="noreferrer">
                 Route öffnen <Icon name="arrow" size={16} />
               </a>
             </article>
@@ -89,7 +87,7 @@ export default function Location() {
       </div>
 
       <p className="location-tip">
-        <Icon name="truck" size={21} /> Kein Stopp am Donnerstag, Samstag und Sonntag – ausser bei Events.
+        Donnerstag sowie am Wochenende sind wir nur bei Events unterwegs.
       </p>
     </section>
   )
