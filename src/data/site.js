@@ -25,7 +25,7 @@ export const weeklyStops = [
     hours: '11:00–14:00',
     title: 'Oberglatt',
     street: 'Wehntalerstrasse 7',
-    city: '8154 Oberglatt',
+    city: '8154 Oberglatt ZH',
     mapsQuery: 'Wehntalerstrasse 7, 8154 Oberglatt',
     note: 'Jede Woche am Montag.',
   },
@@ -37,7 +37,7 @@ export const weeklyStops = [
     hours: '11:00–14:00',
     title: 'Dübendorf',
     street: 'Zürichstrasse 128',
-    city: '8600 Dübendorf',
+    city: '8600 Dübendorf ZH',
     mapsQuery: 'Zürichstrasse 128, 8600 Dübendorf',
     note: 'Jede Woche am Dienstag.',
   },
@@ -47,7 +47,7 @@ export const weeklyStops = [
     day: 'Mittwoch',
     dayShort: 'Mi',
     hours: 'Mittags vor Ort',
-    title: 'Zürich Freilager',
+    title: 'Freilager',
     street: 'Freilagerplatz',
     city: '8047 Zürich',
     mapsQuery: 'Freilagerplatz, 8047 Zürich',
@@ -61,7 +61,7 @@ export const weeklyStops = [
     hours: '11:00–14:00',
     title: 'Schlieren',
     street: 'Rote Platz · Zentrum / Bahnhof',
-    city: '8952 Schlieren',
+    city: '8952 Schlieren ZH',
     mapsQuery: 'Rote Platz Schlieren, Zentrum Bahnhof, 8952 Schlieren',
     note: 'Nur im November 2026.',
     limited: 'Nur November 2026',
@@ -120,7 +120,7 @@ export const navLinks = [
 export const highlights = [
   { number: '01', title: 'Griechische Rezepte', note: 'Ehrlich & traditionell' },
   { number: '02', title: 'Frisch vom Grill', note: 'Für dich zubereitet' },
-  { number: '03', title: 'Mobil unterwegs', note: 'Zürich & Umgebung' },
+  { number: '03', title: 'Mobil unterwegs', note: 'Wochenplan online' },
 ]
 
 export const marqueePhrases = [

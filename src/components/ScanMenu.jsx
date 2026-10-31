@@ -167,7 +167,7 @@ export default function ScanMenu() {
             <small>Greek Taste</small>
           </span>
         </div>
-        <p>Unterwegs in Zürich &amp; Umgebung · steki.ch/#standort</p>
+        <p>Aktueller Standort · steki.ch/#standort</p>
         <a href="mailto:info@steki.ch">info@steki.ch</a>
       </footer>
     </div>

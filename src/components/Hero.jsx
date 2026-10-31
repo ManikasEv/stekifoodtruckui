@@ -16,7 +16,7 @@ export default function Hero() {
         </h1>
         <p className="hero-text">
           Frisch vom Grill, mit Herz serviert. Entdecke echtes griechisches Streetfood
-          aus unserem Foodtruck – unterwegs in Zürich und Umgebung, dort wo du uns brauchst.
+          aus unserem Foodtruck – jeden Wochentag an einem klaren Standort. Schau im Wochenplan nach.
         </p>
         <div className="hero-actions">
           <a className="button" href="#speisekarte">

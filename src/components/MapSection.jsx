@@ -18,8 +18,8 @@ export default function MapSection() {
             {featured.title}.
           </h2>
           <p>
-            STEKI steht nicht mehr fest in Wettingen, sondern wechselt den Standort nach Wochentag.
-            Hier siehst du den passenden Treffpunkt – mit Adresse, Zeit und Karte.
+            STEKI wechselt den Standort nach Wochentag. Wettingen ist vorübergehend geschlossen.
+            Hier siehst du den heutigen oder nächsten Treffpunkt – mit der genauen Adresse und Karte.
           </p>
           <div className="map-address">
             <span className="location-big-icon">

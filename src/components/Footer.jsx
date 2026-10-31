@@ -10,7 +10,7 @@ export default function Footer() {
         <p>
           Authentisches griechisches Streetfood
           <br />
-          aus Zürich und Umgebung – frisch und mobil.
+          an wechselnden Standorten – frisch und mobil.
         </p>
         <div className="footer-contact">
           <small>Kontakt</small>
